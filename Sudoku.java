@@ -2,7 +2,7 @@ package sudoku;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
+import java.util.Scanner;
 public class Sudoku{
 	int count=0;
 	 static int mat[][];
@@ -117,8 +117,10 @@ public static void removeKDigits(int mat[][],int K)
 
 	public static void main(String[] args) throws IOException{
 		char[] arr=new char[2];
-		Random a=new Random();
-		int N = 9, K = a.nextInt() % 20 + 8 ;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number 8 to 40");
+		int N = 9, K = sc.nextInt() ;
+		if(K>40) K=40;else if(K<8) K=8;
 		Sudoku sudoku = new Sudoku(N, K);
 		sudoku.fillValues();
 		removeKDigits(mat,K);
